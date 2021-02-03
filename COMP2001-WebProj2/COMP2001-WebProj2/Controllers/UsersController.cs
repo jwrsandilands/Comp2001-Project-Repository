@@ -107,9 +107,9 @@ namespace COMP2001_WebProj2.Controllers
             return _context.Users.Any(e => e.Email == user.Email && e.Password == user.Password);
         }
 
-        private void Register(User user, out string text)
+        private void Register(User user, out string message)
         {
-            text = null;
+            message = null;
         }
     }
 }

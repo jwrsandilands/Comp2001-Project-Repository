@@ -30,6 +30,27 @@ namespace COMP2001_WebProj2.Models
             }
         }
 
+        //added DataAccess commands
+        public bool Validate(User user)
+        {
+            return true;
+        }
+
+        public void Register(User user, out string message)
+        {
+            message = null;
+        }
+
+        public void Update(User user, int id)
+        {
+
+        }
+
+        public void Delete(int id)
+        {
+
+        }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.HasAnnotation("Relational:Collation", "Latin1_General_CI_AS");
