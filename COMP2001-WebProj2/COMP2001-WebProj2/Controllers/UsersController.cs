@@ -13,16 +13,16 @@ namespace COMP2001_WebProj2.Controllers
     [ApiController]
     public class UsersController : ControllerBase
     {
-        private readonly COMP2001_JSandilandsContext _context;
+        private readonly DataAccess _context;
 
-        public UsersController(COMP2001_JSandilandsContext context)
+        public UsersController(DataAccess context)
         {
             _context = context;
         }
 
         // GET: api/Users
         [HttpGet]
-        public async Task<IActionResult> GetUsers(User user)
+        public async Task<IActionResult> Get(User user)
         {
             return Ok();
         }
@@ -32,7 +32,7 @@ namespace COMP2001_WebProj2.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutUser(int id, User user)
+        public async Task<IActionResult> Put(int id, User user)
         {
             if (id != user.Userid)
             {
@@ -47,7 +47,7 @@ namespace COMP2001_WebProj2.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!UserExists(id))
+                if (!GetValidation(user))
                 {
                     return NotFound();
                 }
@@ -73,7 +73,7 @@ namespace COMP2001_WebProj2.Controllers
             }
             catch (DbUpdateException)
             {
-                if (UserExists(user.Userid))
+                if (GetValidation(user))
                 {
                     return Conflict();
                 }
@@ -102,9 +102,14 @@ namespace COMP2001_WebProj2.Controllers
             return user;
         }
 
-        private bool UserExists(int id)
+        private bool GetValidation(User user)
         {
-            return _context.Users.Any(e => e.Userid == id);
+            return _context.Users.Any(e => e.Email == user.Email && e.Password == user.Password);
+        }
+
+        private void Register(User user, out string text)
+        {
+            text = null;
         }
     }
 }

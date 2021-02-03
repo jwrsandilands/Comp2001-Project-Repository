@@ -6,13 +6,13 @@ using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace COMP2001_WebProj2.Models
 {
-    public partial class COMP2001_JSandilandsContext : DbContext
+    public partial class DataAccess : DbContext
     {
-        public COMP2001_JSandilandsContext()
+        public DataAccess()
         {
         }
 
-        public COMP2001_JSandilandsContext(DbContextOptions<COMP2001_JSandilandsContext> options)
+        public DataAccess(DbContextOptions<DataAccess> options)
             : base(options)
         {
         }

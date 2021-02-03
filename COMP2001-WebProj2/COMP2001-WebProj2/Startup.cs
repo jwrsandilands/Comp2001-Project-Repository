@@ -29,7 +29,7 @@ namespace COMP2001_WebProj2
         {
             services.AddControllers();
 
-            services.AddDbContext<COMP2001_JSandilandsContext>(options =>
+            services.AddDbContext<DataAccess>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("COMP2001_DB")));
         }
 
