@@ -25,17 +25,22 @@ namespace COMP2001_WebProj2.Controllers
         [HttpGet]
         public async Task<IActionResult> Get(User user)
         {
-            SqlParameter verified;
-            verified = new SqlParameter("@Verified","");
-            verified.Direction = System.Data.ParameterDirection.Output;
-            verified.Size = 2;
+            //verify user details using class
+            bool verify = GetValidation(user);
 
-            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC @Verified = ValidateUser @Email, @Password",
-                new SqlParameter("@Email", user.Email.ToString()),
-                new SqlParameter("@Password", user.Password.ToString()),
-                verified);
-            
-            return Ok();
+            //verification message based on result
+            if (!verify)
+            {
+                return Ok("{'verified': false}");
+            }
+            else if(verify)
+            {
+                return Ok("{'verified': true}");
+            }
+            else
+            {
+                return Ok("{'verified': false}");
+            }
         }
 
 
@@ -45,29 +50,7 @@ namespace COMP2001_WebProj2.Controllers
         [HttpPut("{id}")]
         public IActionResult Put(int id, User user)
         {
-            //if (id != user.Userid)
-            //{
-            //    return BadRequest();
-            //}
-
-            //_context.Entry(user).State = EntityState.Modified;
-
-            //try
-            //{
-            //    await _context.SaveChangesAsync();
-            //}
-            //catch (DbUpdateConcurrencyException)
-            //{
-            //    if (!GetValidation(user))
-            //    {
-            //        return NotFound();
-            //    }
-            //    else
-            //    {
-            //        throw;
-            //    }
-            //}
-
+            //execute procedure
             var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC UpdateUser @FirstName, @LastName, @Email, @Password, @id",
                 new SqlParameter("@FirstName", user.FirstName.ToString()),
                 new SqlParameter("@LastName", user.LastName.ToString()),
@@ -75,8 +58,8 @@ namespace COMP2001_WebProj2.Controllers
                 new SqlParameter("@Password", user.Password.ToString()),
                 new SqlParameter("@id", id));
 
-
-            return Ok();
+            //confirm update
+            return StatusCode(204);
         }
 
         // POST: api/Users
@@ -85,28 +68,13 @@ namespace COMP2001_WebProj2.Controllers
         [HttpPost]
         public IActionResult PostUser(User user)
         {
-            string httpNum;
-            string accountNum;
+            //variables
+            string outmessage, httpNum, accountNum;
 
-            string outmessage = "testtext";
-            SqlParameter response;
-            response = new SqlParameter("@ResponseMessage", outmessage);
-            response.Size = 100;
-            response.Direction = System.Data.ParameterDirection.Output;
+            //use register class to register details
+            Register(user, out outmessage);
 
-            Register register = new Register();
-
-
-            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC Register @FirstName, @LastName, @Email, @Password, @ResponseMessage OUTPUT",
-            new SqlParameter("@FirstName", user.FirstName.ToString()),
-            new SqlParameter("@LastName", user.LastName.ToString()),
-            new SqlParameter("@Email", user.Email.ToString()),
-            new SqlParameter("@Password", user.Password.ToString()),
-            response);            
-
-                
-            outmessage = response.Value.ToString();
-
+            //return the appropriate status and info
             httpNum = outmessage.Substring(0, 3);
             if (httpNum.Equals("200"))
             {
@@ -121,28 +89,69 @@ namespace COMP2001_WebProj2.Controllers
             {
                 return StatusCode(404);
             }
-
-
         }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
         public IActionResult DeleteUser(int id)
         {
+            //execute procedure
             var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC DeleteUser @id",
                 new SqlParameter("@id", id));
 
+            //confirm deletion
             return Ok();
         }
 
         private bool GetValidation(User user)
         {
-            return _context.Users.Any(e => e.Email == user.Email && e.Password == user.Password);
+            //set up return value
+            SqlParameter verified;
+            verified = new SqlParameter("@Verified", "");
+            verified.Direction = System.Data.ParameterDirection.Output;
+            verified.Size = 1;
+
+            //execute procedure
+            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC @Verified = ValidateUser @Email, @Password",
+                new SqlParameter("@Email", user.Email.ToString()),
+                new SqlParameter("@Password", user.Password.ToString()),
+                verified);
+
+            //return result depending on the returned value
+            if (verified.Value.ToString().Equals("0"))
+            {
+                return false;
+            }
+            else if (verified.Value.ToString().Equals("1"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
-        private void Register(User user, out string message)
+        private void Register(User user, out string outmessage)
         {
-            message = null;
+
+            //setup output from procedure
+            outmessage = "text";
+            SqlParameter response;
+            response = new SqlParameter("@ResponseMessage", outmessage);
+            response.Size = 100;
+            response.Direction = System.Data.ParameterDirection.Output;
+
+            //execute procedure
+            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC Register @FirstName, @LastName, @Email, @Password, @ResponseMessage OUTPUT",
+            new SqlParameter("@FirstName", user.FirstName.ToString()),
+            new SqlParameter("@LastName", user.LastName.ToString()),
+            new SqlParameter("@Email", user.Email.ToString()),
+            new SqlParameter("@Password", user.Password.ToString()),
+            response);
+
+            //set outgoing response
+            outmessage = response.Value.ToString();
         }
     }
 }
