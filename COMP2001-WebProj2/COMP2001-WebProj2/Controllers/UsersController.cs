@@ -85,6 +85,9 @@ namespace COMP2001_WebProj2.Controllers
         [HttpPost]
         public IActionResult PostUser(User user)
         {
+            string httpNum;
+            string accountNum;
+
             string outmessage = "testtext";
             SqlParameter response;
             response = new SqlParameter("@ResponseMessage", outmessage);
@@ -93,15 +96,33 @@ namespace COMP2001_WebProj2.Controllers
 
             Register register = new Register();
 
+
             var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC Register @FirstName, @LastName, @Email, @Password, @ResponseMessage OUTPUT",
-                new SqlParameter("@FirstName", user.FirstName.ToString()),
-                new SqlParameter("@LastName", user.LastName.ToString()),
-                new SqlParameter("@Email", user.Email.ToString()),
-                new SqlParameter("@Password", user.Password.ToString()),
-                response);
+            new SqlParameter("@FirstName", user.FirstName.ToString()),
+            new SqlParameter("@LastName", user.LastName.ToString()),
+            new SqlParameter("@Email", user.Email.ToString()),
+            new SqlParameter("@Password", user.Password.ToString()),
+            response);            
+
                 
             outmessage = response.Value.ToString();
-            return Ok();
+
+            httpNum = outmessage.Substring(0, 3);
+            if (httpNum.Equals("200"))
+            {
+                accountNum = "'UserID':" + outmessage.Substring(3, 1);
+                return Ok(accountNum);
+            }
+            else if (httpNum.Equals("208"))
+            {
+                return StatusCode(208);
+            }
+            else
+            {
+                return StatusCode(404);
+            }
+
+
         }
 
         // DELETE: api/Users/5
