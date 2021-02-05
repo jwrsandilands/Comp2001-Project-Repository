@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Data.SqlClient;
 using COMP2001_WebProj2.Models;
 
 namespace COMP2001_WebProj2.Controllers
@@ -24,6 +25,16 @@ namespace COMP2001_WebProj2.Controllers
         [HttpGet]
         public async Task<IActionResult> Get(User user)
         {
+            SqlParameter verified;
+            verified = new SqlParameter("@Verified","");
+            verified.Direction = System.Data.ParameterDirection.Output;
+            verified.Size = 2;
+
+            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC @Verified = ValidateUser @Email, @Password",
+                new SqlParameter("@Email", user.Email.ToString()),
+                new SqlParameter("@Password", user.Password.ToString()),
+                verified);
+            
             return Ok();
         }
 
@@ -32,74 +43,75 @@ namespace COMP2001_WebProj2.Controllers
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPut("{id}")]
-        public async Task<IActionResult> Put(int id, User user)
+        public IActionResult Put(int id, User user)
         {
-            if (id != user.Userid)
-            {
-                return BadRequest();
-            }
+            //if (id != user.Userid)
+            //{
+            //    return BadRequest();
+            //}
 
-            _context.Entry(user).State = EntityState.Modified;
+            //_context.Entry(user).State = EntityState.Modified;
 
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateConcurrencyException)
-            {
-                if (!GetValidation(user))
-                {
-                    return NotFound();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            //try
+            //{
+            //    await _context.SaveChangesAsync();
+            //}
+            //catch (DbUpdateConcurrencyException)
+            //{
+            //    if (!GetValidation(user))
+            //    {
+            //        return NotFound();
+            //    }
+            //    else
+            //    {
+            //        throw;
+            //    }
+            //}
 
-            return NoContent();
+            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC UpdateUser @FirstName, @LastName, @Email, @Password, @id",
+                new SqlParameter("@FirstName", user.FirstName.ToString()),
+                new SqlParameter("@LastName", user.LastName.ToString()),
+                new SqlParameter("@Email", user.Email.ToString()),
+                new SqlParameter("@Password", user.Password.ToString()),
+                new SqlParameter("@id", id));
+
+
+            return Ok();
         }
 
         // POST: api/Users
         // To protect from overposting attacks, enable the specific properties you want to bind to, for
         // more details, see https://go.microsoft.com/fwlink/?linkid=2123754.
         [HttpPost]
-        public async Task<ActionResult<User>> PostUser(User user)
+        public IActionResult PostUser(User user)
         {
-            _context.Users.Add(user);
-            try
-            {
-                await _context.SaveChangesAsync();
-            }
-            catch (DbUpdateException)
-            {
-                if (GetValidation(user))
-                {
-                    return Conflict();
-                }
-                else
-                {
-                    throw;
-                }
-            }
+            string outmessage = "testtext";
+            SqlParameter response;
+            response = new SqlParameter("@ResponseMessage", outmessage);
+            response.Size = 100;
+            response.Direction = System.Data.ParameterDirection.Output;
 
-            return CreatedAtAction("GetUser", new { id = user.Userid }, user);
+            Register register = new Register();
+
+            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC Register @FirstName, @LastName, @Email, @Password, @ResponseMessage OUTPUT",
+                new SqlParameter("@FirstName", user.FirstName.ToString()),
+                new SqlParameter("@LastName", user.LastName.ToString()),
+                new SqlParameter("@Email", user.Email.ToString()),
+                new SqlParameter("@Password", user.Password.ToString()),
+                response);
+                
+            outmessage = response.Value.ToString();
+            return Ok();
         }
 
         // DELETE: api/Users/5
         [HttpDelete("{id}")]
-        public async Task<ActionResult<User>> DeleteUser(int id)
+        public IActionResult DeleteUser(int id)
         {
-            var user = await _context.Users.FindAsync(id);
-            if (user == null)
-            {
-                return NotFound();
-            }
+            var rowsaffected = _context.Database.ExecuteSqlRaw("EXEC DeleteUser @id",
+                new SqlParameter("@id", id));
 
-            _context.Users.Remove(user);
-            await _context.SaveChangesAsync();
-
-            return user;
+            return Ok();
         }
 
         private bool GetValidation(User user)
