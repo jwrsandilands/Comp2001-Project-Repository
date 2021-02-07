@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aea7f66e-6f06-486b-84b8-025b43d98763" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/public/footerexample.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/demo.php" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/css/Formatting.css" beforeDir="false" afterPath="$PROJECT_DIR$/assets/css/Formatting.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/footer.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/header.php" afterDir="false" />
     </list>
@@ -30,7 +28,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files/Ampps/www" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/bootstrap-5.0.0-beta1-dist/bootstrap-5.0.0-beta1-dist" />
     <property name="settings.editor.selected.configurable" value="web.server" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -58,7 +56,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612707241896</updated>
-      <workItem from="1612707242954" duration="6859000" />
+      <workItem from="1612707242954" duration="8042000" />
     </task>
     <servers />
   </component>

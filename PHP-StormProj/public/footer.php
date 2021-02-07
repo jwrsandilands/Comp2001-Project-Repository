@@ -6,7 +6,7 @@
         left: 0;
         bottom: 0;
         width: 100%;
-        background-color: #6d9431;
+        background-color: #de653a;
         color: white;
         text-align: center;
         padding: 20px 0px;
