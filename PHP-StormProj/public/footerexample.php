@@ -23,7 +23,7 @@
 </style>
 
  <div class='footer'>
-      <span>End of Page.</span>
+      <span></span>
   </div>
 
 </body>

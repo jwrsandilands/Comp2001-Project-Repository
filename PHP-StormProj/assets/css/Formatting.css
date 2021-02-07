@@ -2,23 +2,22 @@
     margin: 0;
     padding: 0;
     font-family: "Arial";
-
 }
 
 nav{
-    background-color: #de653a;
+    background-color: #de9754;
     color: #ffffffff;
     display: flex;
     justify-content: space-between;
-    /*padding: 20px 40px;*/
+    padding: 10px 20px;
     font-size: larger;
 }
 
 nal ul li{
     list-style: none;
     display: inline-block;
-    /*margin-left: 5px;*/
-    /*margin-right: 5px;*/
+    margin-left: 5px;
+    margin-right: 5px;
 }
 
 nal li a{
