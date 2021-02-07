@@ -10,5 +10,6 @@
     <WebStackScaffolding_LayoutPageFile />
     <WebStackScaffolding_DbContextTypeFullName>COMP2001_WebProj2.Models.COMP2001_JSandilandsContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
+    <NameOfLastUsedPublishProfile>Comp2001WebProj-FolderProfile</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>

@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <RootNamespace>COMP2001_WebProj2</RootNamespace>
+    <UserSecretsId>6818968f-9a22-4fa0-b858-78cd3e6f9cfd</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>
