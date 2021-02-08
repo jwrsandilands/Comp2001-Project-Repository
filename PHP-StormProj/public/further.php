@@ -12,6 +12,10 @@ require_once '../public/newHeader.php';
 <div class = "container-sm">
     <h1><p><strong>Further Reading!</strong></p></h1>
     <h5>Here is a page used for any further reading you may want to do.</h5>
+    <h4>⠀</h4>
+    <h4>⠀</h4>
+    <h4>⠀</h4>
+    <h4>⠀</h4>
 </div>
 
 <?php

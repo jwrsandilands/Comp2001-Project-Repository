@@ -11,7 +11,7 @@ require_once '../public/newHeader.php';
             </div>
                 <div class = "container-sm">
                     <h1><p><strong>Welcome!</strong></p></h1>
-                    <h5>This is the home page. Welcome to my COMP2001 PHP project webpage presenting plymouth landscape character area information!</h5>
+                    <h5>This is the home page. Welcome to my COMP2001 PHP project webpage presenting air pollution around medical institutes.</h5>
                 </div>
                 <div class= "container-sm">
                     <h4>⠀</h4>
@@ -21,7 +21,7 @@ require_once '../public/newHeader.php';
             <div class= "container-sm">
                 <h4>⠀</h4>
                 <h1><p><strong>Project Vision!</strong></p></h1>
-                <h5>This webpage represents gathered data for those looking to find the extent of air pollution within areas of plymouth. It's a data resource that converts the collected data into something more readable for people to use and understand.</h5>
+                <h5>This webpage represents gathered data for those looking to find the extent of air pollution within the boundaries of medical institutes in and around plymouth. It's a data resource that converts the collected data in CSV format into something more readable for people to use and understand. It also makes use of RDF constructors to make a list of linked data that can be used in other projects.</h5>
             </div>
             <div class = "container-sm">
                 <h4>⠀</h4>

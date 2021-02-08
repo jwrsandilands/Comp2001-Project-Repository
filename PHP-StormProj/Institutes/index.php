@@ -10,7 +10,7 @@ require_once '../public/newHeader.php';
     <h4>⠀</h4>
 </div>
 <div class = "container-sm">
-    <h1><p><strong>Entities!</strong></p></h1>
+    <h1><p><strong>RDF Entities!</strong></p></h1>
     <h5>Below is the data Entity and general linked data style information. You can use the inspect element on your browser to see how all the content is linked together in branches!</h5>
 </div>
 <div class = "container-sm">
