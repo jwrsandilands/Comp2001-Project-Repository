@@ -36,14 +36,22 @@ require_once 'public/newHeader.php';
             $row = 1;
             if (($readLines = fopen("public/resources_cd162ad1-d7d5-42a9-b1ab-0edbcd697f1e_air-quality-by-pm2.5-score-blf.org.uk.csv", "r")) !== FALSE) {
                 while (($dataLine = fgetcsv($readLines, 1000, ",")) !== FALSE) {
-                    echo "<tr>";
-                    $numEntries = count($dataLine);
-                    echo "<th scope=\"row\">" . $row . "</th>";
-                    $row++;
-                    for ($counter=0; $counter < $numEntries; $counter++) {
-                        echo "<td>".  $dataLine[$counter] . "</td>";
+                    if ($row !== 1){
+                        echo "<tr>";
                     }
-                    echo "</tr>";
+                    $numEntries = count($dataLine);
+                    if ($row !== 1) {
+                        echo "<th scope=\"row\">" . $row . "</th>";
+                    }
+                    for ($counter=0; $counter < $numEntries; $counter++) {
+                        if ($row !== 1) {
+                            echo "<td>" . $dataLine[$counter] . "</td>";
+                        }
+                    }
+                    if ($row !== 1) {
+                        echo "</tr>";
+                    }
+                    $row++;
                 }
                 fclose($readLines);
             }

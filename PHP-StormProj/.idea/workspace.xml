@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aea7f66e-6f06-486b-84b8-025b43d98763" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/entity.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/further.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/public/resources_cd162ad1-d7d5-42a9-b1ab-0edbcd697f1e_air-quality-by-pm2.5-score-blf.org.uk.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/data.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/footer.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/newHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/newHeader.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +61,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612707241896</updated>
-      <workItem from="1612707242954" duration="22623000" />
+      <workItem from="1612707242954" duration="23285000" />
     </task>
     <servers />
   </component>
