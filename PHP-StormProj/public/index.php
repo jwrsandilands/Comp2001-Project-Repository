@@ -1,5 +1,5 @@
 <?php
-require_once 'public/newHeader.php';
+require_once '../public/newHeader.php';
 ?>
     <html lang="en">
         <head>
@@ -29,5 +29,5 @@ require_once 'public/newHeader.php';
             </body>
         </html>
 <?php
-require_once 'public/footer.php';
+require_once '../public/footer.php';
 ?>

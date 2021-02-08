@@ -19,10 +19,10 @@
     <nav class="p-3 mb-2 bg-primary text-white">
         <h1 class="p-3 mb-2 bg-primary text-white"><p><strong>Comp2001 Web project: <?echo basename($_SERVER['PHP_SELF'])?></strong></p></h1>
         <ul id = menu class="p-3 mb-2 bg-light">
-            <li class><a href="index.php">HOME</a></li>
-            <li class><a href="data.php">DATA</a></li>
-            <li class><a href="Entity.php">ENTITIES</a></li>
-            <li class><a href="Further.php">FURTHER READING</a></li>
+            <li class><a href="../public/index.php">HOME</a></li>
+            <li class><a href="../public/data.php">DATA</a></li>
+            <li class><a href="../Institutes/index.php">ENTITIES</a></li>
+            <li class><a href="../public/further.php">FURTHER READING</a></li>
         </ul>
     </nav>
 </div>

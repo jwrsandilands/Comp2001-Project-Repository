@@ -1,5 +1,5 @@
 <?php
-require_once 'public/newHeader.php';
+require_once '../public/newHeader.php';
 ?>
 <html lang="en">
     <head>
@@ -34,7 +34,7 @@ require_once 'public/newHeader.php';
             <tbody>
             <?php
             $row = 1;
-            if (($readLines = fopen("public/resources_cd162ad1-d7d5-42a9-b1ab-0edbcd697f1e_air-quality-by-pm2.5-score-blf.org.uk.csv", "r")) !== FALSE) {
+            if (($readLines = fopen("../public/resources_cd162ad1-d7d5-42a9-b1ab-0edbcd697f1e_air-quality-by-pm2.5-score-blf.org.uk.csv", "r")) !== FALSE) {
                 while (($dataLine = fgetcsv($readLines, 1000, ",")) !== FALSE) {
                     if ($row !== 1){
                         echo "<tr>";
@@ -64,5 +64,5 @@ require_once 'public/newHeader.php';
 
 
 <?php
-require_once 'public/footer.php';
+require_once '../public/footer.php';
 ?>
