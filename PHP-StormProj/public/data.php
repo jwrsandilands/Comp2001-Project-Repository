@@ -25,7 +25,7 @@ require_once '../public/newHeader.php';
                     <th scope = "col">Postcode</th>
                     <th scope = "col">Town</th>
                     <th scope = "col">Type</th>
-                    <th scope = "col">PM2 5</th>
+                    <th scope = "col">PM2.5</th>
                     <th scope = "col">Exceeds 10</th>
                     <th scope = "col">Latitude</th>
                     <th scope = "col">Longitude</th>
