@@ -16,12 +16,15 @@ require_once 'public/newHeader.php';
                 <div class= "container-sm">
                     <h4>⠀</h4>
                 <h1><p><strong>Data Source!</strong></p></h1>
-                    <h5>The original data source for the resources used on this side can be found here: <a href="https://plymouth.thedata.place/dataset/plymouth-landscape-character-areas">https://plymouth.thedata.place/dataset/plymouth-landscape-character-areas</a></h5>
+                    <h5>The original data source for the resources used on this side can be found here: <a href="https://plymouth.thedata.place/dataset/air-quality-data">https://plymouth.thedata.place/dataset/air-quality-data</a></h5>
                 </div>
             <div class= "container-sm">
                 <h4>⠀</h4>
                 <h1><p><strong>Project Vision!</strong></p></h1>
-                <h5>This webpage represents gathered data for those looking to find the extend of different landscape areas in plymouth. It's a data resource that converts the raw collected data into something more readable for people to use and understand.</h5>
+                <h5>This webpage represents gathered data for those looking to find the extent of air pollution within areas of plymouth. It's a data resource that converts the collected data into something more readable for people to use and understand.</h5>
+            </div>
+            <div class = "container-sm">
+                <h4>⠀</h4>
             </div>
             </body>
         </html>

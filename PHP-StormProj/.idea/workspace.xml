@@ -2,9 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="aea7f66e-6f06-486b-84b8-025b43d98763" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/entity.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/further.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/resources_cd162ad1-d7d5-42a9-b1ab-0edbcd697f1e_air-quality-by-pm2.5-score-blf.org.uk.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data.php" beforeDir="false" afterPath="$PROJECT_DIR$/data.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/index.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/newHeader.php" beforeDir="false" afterPath="$PROJECT_DIR$/public/newHeader.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,6 +18,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -33,8 +45,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\icek0\Documents\GitHub\Comp2001-Project-Repository\PHP-StormProj" />
       <recent name="C:\Users\icek0\Documents\GitHub\Comp2001-Project-Repository\PHP-StormProj\public" />
+      <recent name="C:\Users\icek0\Documents\GitHub\Comp2001-Project-Repository\PHP-StormProj" />
     </key>
   </component>
   <component name="RunManager">
@@ -55,7 +67,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1612707241896</updated>
-      <workItem from="1612707242954" duration="15471000" />
+      <workItem from="1612707242954" duration="22623000" />
     </task>
     <servers />
   </component>

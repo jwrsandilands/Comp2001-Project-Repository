@@ -21,6 +21,8 @@
         <ul id = menu class="p-3 mb-2 bg-light">
             <li class><a href="index.php">HOME</a></li>
             <li class><a href="data.php">DATA</a></li>
+            <li class><a href="Entity.php">ENTITIES</a></li>
+            <li class><a href="Further.php">FURTHER READING</a></li>
         </ul>
     </nav>
 </div>

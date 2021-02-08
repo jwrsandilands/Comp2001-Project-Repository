@@ -7,7 +7,7 @@
 </head>
 
 <style>.footer{
-        position: fixed;
+        position: static;
         bottom: 0;
         left: 15%;
         width: 70%;
